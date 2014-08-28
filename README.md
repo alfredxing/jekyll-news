@@ -1,4 +1,3 @@
-jekyll-news
-===========
+## Stillery in Sinatra
 
-A community-driven, Hacker News style forum for Jekyll.
+This is a Stillery API implemented in Sinatra.
