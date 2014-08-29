@@ -9,7 +9,7 @@ configure do
     DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/db/development.db")
   end
   configure :production do
-    DataMapper.setup(:default, ENV['HEROKU_POSTGRESQL_RED_URL'])
+    DataMapper.setup(:default, ENV['DATABASE_URL'])
   end
   DataMapper.auto_upgrade!
 
