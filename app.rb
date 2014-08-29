@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'data_mapper'
 require 'json'
-require 'msgpack'
 
 # Classes
 Dir["lib/*.rb"].each { |file| require_relative file }
