@@ -1,6 +1,5 @@
 class Post
   include DataMapper::Resource
-  include Karma
 
   property :id,     Serial
   property :title,  String,  :required => true
@@ -17,5 +16,10 @@ class Post
     text   = self.text.inspect
     karma  = self.karma.inspect
     "#<#{self.class} @id=#{id} @title=#{title} @link=#{link} @author=#{author} @text=#{text} @karma=#{karma}>"
+  end
+
+  def upvote
+    self.karma += 1
+    save
   end
 end

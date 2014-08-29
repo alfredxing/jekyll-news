@@ -14,4 +14,9 @@ class User
     karma = self.karma.inspect
     "#<#{self.class} @id=#{id} @name=#{name} @posts=#{posts} @karma=#{karma}>"
   end
+
+  def upvote
+    self.karma += 1
+    save
+  end
 end
