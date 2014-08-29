@@ -1,6 +1,5 @@
 class User
   include DataMapper::Resource
-  include Karma
 
   property :id,    Integer, :required => true, :key => true
   property :name,  String,  :required => true
