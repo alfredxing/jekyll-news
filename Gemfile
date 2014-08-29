@@ -8,7 +8,13 @@ gem 'msgpack'
 gem 'rest-client'
 
 gem 'datamapper'
-gem 'dm-sqlite-adapter'
-gem 'sqlite3'
+group :development, :test do
+  gem 'dm-sqlite-adapter'
+  gem 'sqlite3'
+end
+group :production do
+  gem 'dm-postgres-adapter'
+  gem 'pg'
+end
 
 gem 'unicorn'
