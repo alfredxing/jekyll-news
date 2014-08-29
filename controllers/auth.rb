@@ -21,7 +21,7 @@ get '/auth/callback' do
   session[:id] = id = client.user[:id]
 
   if !User.get(id)
-    user = User.create(:id => id, :name => client.user[:login], :posts => [].to_msgpack)
+    user = User.create(:id => id, :name => client.user[:login])
     user.save
   end
 
