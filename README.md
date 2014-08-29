@@ -1,3 +1,3 @@
-## Stillery in Sinatra
+## Jekyll News
 
-This is a Stillery API implemented in Sinatra.
+Community driven news regarding Jekyll
