@@ -11,7 +11,6 @@ configure do
   configure :production do
     DataMapper.setup(:default, ENV['DATABASE_URL'])
   end
-  DataMapper.auto_upgrade!
 
 	# Enable sessions
 	set :sessions, true

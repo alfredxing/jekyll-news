@@ -3,6 +3,11 @@ get '/' do
   erb :'post/top', :layout => :'layouts/default'
 end
 
+get '/' do
+  @posts = Post.all(:order => [ :karma.desc ])
+  erb :'post/top', :layout => :'layouts/default'
+end
+
 get '/submit' do
   @title = "New post"
   erb :'post/new', :layout => :'layouts/default'
@@ -24,7 +29,8 @@ post '/post/new' do
     :title  => params[:title],
     :link   => params[:link],
     :text   => params[:text],
-    :author => session[:id]
+    :author => session[:id],
+    :time   => Time.new.to_date
   }
   post = Post.create(args)
   post.save

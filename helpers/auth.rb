@@ -1,9 +1,20 @@
 require 'rest-client'
+require_relative 'keys'
 
 module Auth
+  include Keys
+
+  def self.client_id
+    ENV["CLIENT_ID"] || Keys::CLIENT_ID
+  end
+
+  def self.client_secret
+    ENV["CLIENT_KEY"] || Keys::CLIENT_KEY
+  end
+
   def self.oauth_url(state)
     "https://github.com/login/oauth/authorize?" \
-    "client_id=40c9f8fbca82090d3af9&" \
+    "client_id=#{client_id}&" \
     "scope=user:email&" \
     "state=#{state}"
   end
@@ -11,8 +22,8 @@ module Auth
   def self.obtain_token(code)   
     # Send auth request with code to obtain token
     payload = {
-      :client_id => "40c9f8fbca82090d3af9",
-      :client_secret => "3b9346850fc50b2a7e3d9ee2db71b4e37f7caf25",
+      :client_id => client_id,
+      :client_secret => client_secret,
       :code => code
     }
 

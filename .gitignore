@@ -1,3 +1,4 @@
 tmp/
 db/
 .bundle/
+helpers/keys.rb

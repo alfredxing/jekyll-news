@@ -2,6 +2,7 @@ class Post
   include DataMapper::Resource
 
   property :id,     Serial
+  property :time,   Object,  :required => true
   property :title,  String,  :required => true
   property :author, Integer, :required => true
   property :link,   String,  :required => true
