@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= @title %><%= " &middot; " if @title %>Jekyll News</title>
+    <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Lato:400,700/Inconsolata:400">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="icon" href="/assets/images/favicon.ico">
+</head>
+<body>
+<header class="container">
+    <img src="/assets/images/favicon.ico" alt="" id="logo">
+    <span class="title">Jekyll News</span>
+    <nav>
+        <ul>
+            <li><a href="/">Top</a></li>
+            <li><a href="/new">New</a></li>
+            <li><a href="/submit">Submit</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="container">
+    <%= yield %>
+</section> 
+</body>
+</html>

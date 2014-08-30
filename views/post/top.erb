@@ -1,0 +1,5 @@
+<ol id="posts">
+<% @posts.each do |post| %>
+    <li><a class="title" href="<%= post.link %>" target="_blank"><%= post.title %></span></li>
+<% end %>
+</ol>

@@ -1,9 +1,11 @@
 get '/' do
-  Post.all.inspect
+  @posts = Post.all(:order => [ :karma.desc ])
+  erb :'post/top', :layout => :'layouts/default'
 end
 
-get '/new' do
-  erb :'post/new'
+get '/submit' do
+  @title = "New post"
+  erb :'post/new', :layout => :'layouts/default'
 end
 
 get '/post/:id' do
