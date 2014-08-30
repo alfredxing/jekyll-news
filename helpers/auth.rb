@@ -1,5 +1,5 @@
 require 'rest-client'
-require_relative 'keys'
+require_relative 'keys' if File.exist? './keys.rb'
 
 module Auth
   include Keys
