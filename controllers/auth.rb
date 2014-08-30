@@ -12,8 +12,8 @@ get '/auth/callback' do
 
   begin
     token = Auth.obtain_token params[:code]
-  rescue Exception
-    halt 401, (erb :'status/401', :locals => { :message => "Unable to obtain token" })
+  rescue Exception => e
+    halt 401, (erb :'status/401', :locals => { :message => e.message })
   end
 
   client = Client.new(token)

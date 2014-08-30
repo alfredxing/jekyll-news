@@ -2,20 +2,17 @@ require 'rest-client'
 require_relative 'keys' if File.exist? './keys.rb'
 
 module Auth
-  include Keys
-
   def self.client_id
-    ENV["CLIENT_ID"] || Keys::CLIENT_ID
+    ENV["CLIENT_ID"]
   end
 
   def self.client_secret
-    ENV["CLIENT_KEY"] || Keys::CLIENT_KEY
+    ENV["CLIENT_KEY"]
   end
 
   def self.oauth_url(state)
     "https://github.com/login/oauth/authorize?" \
     "client_id=#{client_id}&" \
-    "scope=user:email&" \
     "state=#{state}"
   end
 
@@ -36,7 +33,7 @@ module Auth
     token = JSON.parse(res)["access_token"]
 
     if token.nil?
-      raise "Token not part of response"
+      raise "Unable to obtain access token"
     end
 
     token
