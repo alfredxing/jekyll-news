@@ -22,7 +22,7 @@
             <% if session[:id] %>
                 <li><a href="/user/logout">Log out</a></li>
                 <li class="user">
-                    <%= session[:user] %>
+                    <span><%= session[:user] %></span>
                     <img src="<%= session[:avatar] %>&s=50" alt="<%= session[:user] %>">
                 </li>
             <% else %>
