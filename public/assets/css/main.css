@@ -23,20 +23,39 @@ a {
 header {
     padding: 25px 0;
 }
-header img, span, a {
+header img, header span, header a {
     display: inline-block;
     vertical-align: middle;
     line-height: 32px;
 }
-#logo {
+header a {
+    color: #222;
+    margin-right: 5px;
+}
+header img {
     height: 24px;
     width: 24px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    border-radius: 12px;
 }
 header .title {
     font-weight: 700;
+    margin-left: 3px;
+}
+header:before,
+header:after {
+    content: " ";
+    display: table;
+}
+header:after {
+    clear: both;
 }
 
 nav {
+    float: left;
     display: inline-block;
 }
 nav ul {
@@ -45,15 +64,34 @@ nav ul {
     list-style-type: none;
     display: inline-block;
 }
+nav.right {
+    float: right;
+    text-align: right;
+}
+nav.right ul {
+    margin-right: 0;
+}
 nav li {
     display: inline-block;
+    margin-left: 5px;
 }
-nav a {
-    color: #222;
-    margin-right: 5px;
+nav li.user {
+    color: #888;
+}
+nav li.user img {
+    margin-left: 3px;
 }
 
 #posts {
     margin: 0;
     padding: 0;
+}
+#posts li {
+    margin-bottom: 0.75em;
+}
+#posts .title {
+    display: block;
+}
+#posts span {
+    font-size: 10pt;
 }

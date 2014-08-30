@@ -8,13 +8,26 @@
 </head>
 <body>
 <header class="container">
-    <img src="/assets/images/favicon.ico" alt="" id="logo">
-    <span class="title">Jekyll News</span>
     <nav>
+        <img src="/assets/images/logo.png" alt="" id="logo">
+        <a href="/" class="title">Jekyll News</a>
         <ul>
             <li><a href="/">Top</a></li>
             <li><a href="/new">New</a></li>
             <li><a href="/submit">Submit</a></li>
+        </ul>
+    </nav>
+    <nav class="right">
+        <ul>
+            <% if session[:id] %>
+                <li><a href="/user/logout">Log out</a></li>
+                <li class="user">
+                    <%= session[:user] %>
+                    <img src="<%= session[:avatar] %>&s=50" alt="<%= session[:user] %>">
+                </li>
+            <% else %>
+                <li><a href="/auth">Sign in with GitHub</a></li>
+            <% end %>
         </ul>
     </nav>
 </header>

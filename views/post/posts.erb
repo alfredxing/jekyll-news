@@ -1,0 +1,11 @@
+<ol id="posts">
+<% @posts.each do |post| %>
+    <li>
+        <a class="title" href="<%= post.link %>" target="_blank"><%= post.title %></a>
+        <% if post.upvotable?(session[:id]) %>
+            <span class="upvote" data-post="<%= post.id %>">Upvote</span>
+        <% end %>
+        <span><%= post.karma %> point<% if post.karma > 1 %>s<% end %> by <%= User.get(post.author).name %></span>
+    </li>
+<% end %>
+</ol>

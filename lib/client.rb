@@ -5,7 +5,7 @@ class Client
 	attr_accessor :token, :user
 
   API_URL = "https://api.github.com/"
-  USER_KEYS = ["name", "login", "id"]
+  USER_KEYS = ["name", "login", "id", "avatar_url"]
 
   def initialize(token)
     @token = token
