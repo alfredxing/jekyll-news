@@ -7,6 +7,8 @@ gem 'sinatra-flash'
 gem 'json'
 gem 'rest-client'
 
+gem 'sanitize'
+
 gem 'datamapper'
 group :development, :test do
   gem 'dm-sqlite-adapter'

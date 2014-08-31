@@ -1,1 +1,1 @@
-<%= @text %>
+<%= Sanitize.fragment(@text, Sanitize::Config::BASIC) %>

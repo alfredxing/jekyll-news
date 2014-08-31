@@ -28,6 +28,9 @@ input[disabled], textarea[disabled] {
 }
 a {
     text-decoration: none;
+    color: #222;
+}
+a[href] {
     color: #25A;
 }
 
@@ -39,7 +42,7 @@ header img, header span, header a {
     vertical-align: middle;
     line-height: 32px;
 }
-header a {
+header a[href] {
     color: #222;
     margin-right: 5px;
 }

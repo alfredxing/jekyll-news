@@ -2,7 +2,7 @@
 <% @posts.each do |post| %>
     <% author = User.get(post.author).name %>
     <li>
-        <a class="title" href="<%= post.link %>" target="_blank"><%= post.title %></a>
+        <%= Sanitize.fragment("<a class=\"title\" href=\"#{post.link}\" target=\"_blank\">#{post.title}</a>", Sanitize::Config::RELAXED) %>
         <% if post.upvotable?(session[:id]) %>
             <span class="upvote" data-post="<%= post.id %>">Upvote</span>
         <% end %>
@@ -14,5 +14,5 @@
     $(".upvote").click(function() {
         $.post("/upvote/" + $(this).data("post"))
         $(this).remove();
-    })
+    });
 </script>
