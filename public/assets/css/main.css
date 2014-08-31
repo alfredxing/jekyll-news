@@ -91,7 +91,12 @@ nav li.user img {
 }
 #posts .title {
     display: block;
+    font-weight: bold;
 }
 #posts span {
     font-size: 10pt;
+}
+#posts .upvote {
+    color: #25A;
+    cursor: pointer;
 }

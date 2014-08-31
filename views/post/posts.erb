@@ -1,11 +1,12 @@
 <ol id="posts">
 <% @posts.each do |post| %>
+    <% author = User.get(post.author).name %>
     <li>
         <a class="title" href="<%= post.link %>" target="_blank"><%= post.title %></a>
         <% if post.upvotable?(session[:id]) %>
-            <span class="upvote" data-post="<%= post.id %>">Upvote</span>
+            <span class="upvote" data-post="<%= post.id %>">Upvote</span> &middot;
         <% end %>
-        <span><%= post.karma %> point<% if post.karma > 1 %>s<% end %> by <%= User.get(post.author).name %></span>
+        <span><%= post.karma %> point<% if post.karma > 1 %>s<% end %> by <a href="https://github.com/<%= author %>" target="_blank"><%= author %></a></span>
     </li>
 <% end %>
 </ol>
