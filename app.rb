@@ -13,7 +13,7 @@ helpers Auth
 
 # Configuration
 require_relative "config/application.rb"
-DataMapper.auto_migrate!
+DataMapper.auto_upgrade!
 
 # Controllers
 Dir["controllers/*.rb"].each { |file| require_relative file }
