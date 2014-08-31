@@ -1,3 +1,3 @@
 get '/status' do
-  User.all.inspect + "\n" + session[:id].inspect
+  Post.all.destroy
 end

@@ -30,5 +30,6 @@ end
 
 not_found do
   status 404
-  erb :'status/404'
+  content_type :json
+  erb :'status/404', :layout => false
 end
