@@ -100,3 +100,8 @@ nav li.user img {
     color: #25A;
     cursor: pointer;
 }
+#posts .upvote:after {
+    content: " \00B7";
+    color: #222;
+    cursor: default;
+}

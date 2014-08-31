@@ -4,9 +4,15 @@
     <li>
         <a class="title" href="<%= post.link %>" target="_blank"><%= post.title %></a>
         <% if post.upvotable?(session[:id]) %>
-            <span class="upvote" data-post="<%= post.id %>">Upvote</span> &middot;
+            <span class="upvote" data-post="<%= post.id %>">Upvote</span>
         <% end %>
         <span><%= post.karma %> point<% if post.karma > 1 %>s<% end %> by <a href="https://github.com/<%= author %>" target="_blank"><%= author %></a></span>
     </li>
 <% end %>
 </ol>
+<script type="text/javascript">
+    $(".upvote").click(function() {
+        $.post("/upvote/" + $(this).data("post"))
+        $(this).remove();
+    })
+</script>
