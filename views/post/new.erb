@@ -1,6 +1,20 @@
 <form action="/post/new" method="POST">
-    <input type="text" name="title" placeholder="Title">
-    <input type="url" name="link" placeholder="URL">
-    <textarea name="text" cols="30" rows="10"></textarea>
+    <input type="text" name="title" placeholder="Title" required class="title">
+    <input type="url" name="link" placeholder="URL" class="url">
+    <textarea name="text" cols="30" rows="10" placeholder="Text" class="text"></textarea>
     <button>Create</button>
 </form>
+<script type="text/javascript">
+    $("input.url").on("input", function() {
+        if ($(this).val() != "")
+            $("textarea.text").attr("disabled", "disabled");
+        else
+            $("textarea.text").removeAttr("disabled");
+    });
+    $("textarea.text").on("input", function() {
+        if ($(this).val() != "")
+            $("input.url").attr("disabled", "disabled");
+        else
+            $("input.url").removeAttr("disabled");
+    });
+</script>

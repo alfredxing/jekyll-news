@@ -24,9 +24,12 @@ class Post
   end
 
   def process
-    link = "/post/#{self.id}" if self.link.empty?
+    if (self.link.nil? || self.link.empty?)
+      self.link = "/post/#{self.id}"
+      save
+    end
     set = Set.new [self.author]
-    self.attributes = { :link => link, :votes => set }
+    self.votes = set
     save
   end
 
